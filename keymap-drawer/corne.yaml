@@ -42,11 +42,11 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:volume-off$$
   - LGUI
-  - {t: '3', h: lower}
+  - {t: '&tap_tog 3', h: lower}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: raise, h: raise}
+  - {t: '&tap_tog 2', h: raise}
   - {t: Gui+ `, h: RGUI, s: Gui+ ~}
   - $$mdi:mouse-left-click-outline$$
   lower:
