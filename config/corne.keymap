@@ -24,6 +24,13 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
+        
+        tap_tog: tap_tog {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&tog>;
+        };
 
         mmv {
             acceleration-exponent = <1>;      // 1
@@ -42,7 +49,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&tap_tog>;
         };
     };
 
