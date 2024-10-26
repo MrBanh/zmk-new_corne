@@ -41,8 +41,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <0>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <200>;
             bindings = <&mo>, <&tog>;
         };
     };
