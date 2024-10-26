@@ -42,7 +42,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:volume-off$$
   - LGUI
-  - {t: '&dt_tog_3 3', h: lower}
+  - {t: '&dt_tog 3', h: lower}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:backspace$$', type: backspace}
