@@ -46,7 +46,7 @@ layers:
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: raise, h: raise}
+  - {t: '&dt_tog 2', h: raise}
   - {t: Gui+ `, h: RGUI, s: Gui+ ~}
   - $$mdi:mouse-left-click-outline$$
   lower:
