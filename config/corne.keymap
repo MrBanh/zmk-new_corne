@@ -36,6 +36,22 @@
             time-to-max-speed-ms = <300>;
             delay-ms = <0>;
         };
+            
+        // Tap for Page up, Double Tap for Home
+        PgUp_Home: PgUp_Home {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&kp PG_UP>, <&kp HOME>;
+        };
+            
+        // Tap for Page Down, Double Tap for End
+        PgDn_End: PgDn_End {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&kp PG_DN>, <&kp END>;
+        };
 
         gui_alt: gui_alt {
             compatible = "zmk,behavior-tap-dance";
@@ -106,8 +122,8 @@
             //                                               GUI+GRV
 
             bindings = <
-&kp TAB    &kp Q  &kp W       &kp E     &kp R     &kp T         &kp PG_UP     &kp Y     &kp U     &kp I      &kp O    &kp P     &kp ENTER
-&kp LSHFT  &kp A  &kp S       &kp D     &kp F     &kp G         &kp PG_DN     &kp H     &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp TAB    &kp Q  &kp W       &kp E     &kp R     &kp T         &PgUp_Home    &kp Y     &kp U     &kp I      &kp O    &kp P     &kp ENTER
+&kp LSHFT  &kp A  &kp S       &kp D     &kp F     &kp G         &PgDn_End     &kp H     &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LCTRL  &kp Z  &kp X       &kp C     &kp V     &kp B         &mkp MB4      &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                   &kp C_MUTE  &gui_alt  &mo1_mo3  &kp SPACE     &mkp MB5      &kp BSPC  &mo2_tog2 &alt_gui
                                                                 &kp LG(GRAVE)
