@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - PG UP
+  - '&PgUp_Home'
   - Y
   - U
   - I
@@ -20,7 +20,7 @@ layers:
   - D
   - F
   - G
-  - PG DN
+  - '&PgDn_End'
   - H
   - J
   - K
