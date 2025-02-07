@@ -143,11 +143,11 @@
             //                                             LClick
 
             bindings = <
-&kp ESC          &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &mmv MOVE_UP      &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&mt LSHIFT CAPS  &trans     &trans    &trans    &trans    &trans        &mmv MOVE_DOWN    &kp UNDER  &kp MINUS  &kp PLUS   &kp EQUAL  &kp LBRC  &kp RBRC
-&trans           &trans     &trans    &trans    &trans    &trans        &mmv MOVE_LEFT    &trans     &trans     &trans     &trans     &trans    &trans
-                            &mkp MCLK &trans    &trans    &trans        &mmv MOVE_RIGHT   &trans     &trans     &trans 
-                                                                        &mkp LCLK     
+&kp ESC  &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &mmv MOVE_UP      &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
+CAPS     &trans     &trans    &trans    &trans    &trans        &mmv MOVE_DOWN    &kp UNDER  &kp MINUS  &kp PLUS   &kp EQUAL  &kp LBRC  &kp RBRC
+&trans   &trans     &trans    &trans    &trans    &trans        &mmv MOVE_LEFT    &trans     &trans     &trans     &trans     &trans    &trans
+                    &mkp MCLK &trans    &trans    &trans        &mmv MOVE_RIGHT   &trans     &trans     &trans 
+                                                                &mkp LCLK     
             >;
 
             label = "LOWER";
