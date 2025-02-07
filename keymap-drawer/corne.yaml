@@ -48,7 +48,7 @@ layers:
   - {t: '$$mdi:backspace$$', type: backspace}
   - '&mo2_tog2'
   - '&alt_gui'
-  - {t: Gui+ `, s: Gui+ ~}
+  - {t: Gui+`, s: Gui+~}
   LOWER:
   - $$mdi:keyboard-esc$$
   - '!'
@@ -63,7 +63,7 @@ layers:
   - (
   - )
   - '|'
-  - {t: '$$mdi:apple-keyboard-caps$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - $$mdi:apple-keyboard-caps$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
