@@ -46,7 +46,7 @@ layers:
   - '&mo1_mo3'
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:backspace$$', type: backspace}
-  - '&mo2_tog2'
+  - '&mo2_holdtog2'
   - '&alt_gui'
   LOWER:
   - $$mdi:keyboard-esc$$
