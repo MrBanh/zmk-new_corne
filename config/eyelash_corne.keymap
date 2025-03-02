@@ -29,8 +29,19 @@
 // https://zmk.dev/docs/keymaps/behaviors/hold-tap#example-use-cases
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
+#define HOLD_TOG(layer) &hold_tog layer layer
+
 / {
     behaviors {
+        hold_tog: hold_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&tog>, <&mo>;
+        };
+
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
             label = "TD0";
@@ -95,6 +106,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <400>;
             bindings = <&mo 2>, <&tog 2>;
+        };
+
+        // Hold for layer 2, double tap and hold to toggle layer 2
+        mo2_holdtog2: mo2_holdtog2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&mo 2>, <HOLD_TOG(2)>;
         };
 
         // Hold for layer 1, double tap and hold for layer 3
