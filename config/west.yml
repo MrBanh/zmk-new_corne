@@ -6,8 +6,8 @@ manifest:
       # See:
       # - https://zmk.dev/docs/features/modules
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
-    - name: MrBanh
-      url-base: https://github.com/MrBanh
+    - name: dsifry
+      url-base: https://github.com/dsifry
   projects:
     - name: eyelash_corne
       url: https://github.com/MrBanh/zmk-new_corne
@@ -16,8 +16,8 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: nice-view-bongo-cat
-      remote: MrBanh
+    - name: nice-view-mod
+      remote: dsifry
       revision: main
   self:
     path: config
