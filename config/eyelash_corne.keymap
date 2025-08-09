@@ -90,7 +90,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RALT>, <&kp RGUI>;
+            bindings = <&kp LALT>, <&kp RGUI>;
         };
 
         // Hold for GUI, tap for GUI+GRAVE, double tap for ALT
@@ -116,7 +116,7 @@
         mo2_holdtog2: mo2_holdtog2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <500>;
+            tapping-term-ms = <750>;
             bindings = <&mo 2>, <HOLD_TOG(2)>;
         };
 
