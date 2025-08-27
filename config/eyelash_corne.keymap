@@ -207,10 +207,10 @@
 
         layer_4 {
             bindings = <
-&trans  &trans          &mmv MOVE_UP    &trans           &trans         &trans                         &trans          &mkp MCLK  &mkp LCLK       &mkp RCLK     &trans    &trans  &trans
-&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PAGE_DOWN  &trans                 &trans  &trans  &trans  &mkp MB4   &msc SCRL_DOWN  &msc SCRL_UP  &mkp MB5  &trans  &trans
-&trans  &trans          &trans          &trans           &trans         &kp PAGE_UP  &trans            &trans          &trans     &trans          &trans        &trans    &trans  &trans
-                                        &trans           &trans         &trans                                         &trans     &trans          &trans
+&trans  &trans  &trans          &mmv MOVE_UP    &trans           &trans                    &trans          &mkp MCLK  &mkp LCLK       &mkp RCLK     &trans    &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans            &trans  &trans  &trans  &mkp MB4   &msc SCRL_DOWN  &msc SCRL_UP  &mkp MB5  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans  &trans            &trans          &trans     &PgDn_End       &PgUp_Home    &trans    &trans  &trans
+                                &trans          &trans           &trans                                    &trans     &trans          &trans
             >;
 
             label = "MOUSE";
