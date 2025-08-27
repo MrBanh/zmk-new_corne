@@ -135,7 +135,7 @@
             #binding-cells = <0>;
             bindings = <&mo 2>, <&hold_tog 4 2>;
 
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <2000>;
         };
     };
 
