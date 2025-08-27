@@ -113,11 +113,11 @@
 
         // Hold for layer 2, double tap and hold to toggle layer 2
 
-        mo2_holdtog2: mo2_holdtog2 {
+        mo2_holdtog4: mo2_holdtog4 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <750>;
-            bindings = <&mo 2>, <HOLD_TOG(2)>;
+            tapping-term-ms = <1000>;
+            bindings = <&mo 2 HOLD_TOG(2)>, <&hold_tog 4 2>;
         };
 
         // Hold for layer 1, double tap and hold for layer 3
@@ -153,7 +153,7 @@
 &kp TAB    &kp Q  &kp W  &kp E     &kp R     &kp T                              &PgUp_Home               &kp Y     &kp U          &kp I      &kp O    &kp P     &kp ENTER
 &kp LSHFT  &kp A  &kp S  &kp D     &kp F     &kp G                    &mkp MB4  &kp LG(GRAVE)  &mkp MB5  &kp H     &kp J          &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LCTRL  &kp Z  &kp X  &kp C     &kp V     &kp B      &kp C_MUTE              &PgDn_End                &kp N     &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                         &gui_alt  &mo1_mo3  &kp SPACE                                                   &kp BSPC  &mo2_holdtog2  &alt_gui
+                         &gui_alt  &mo1_mo3  &kp SPACE                                                   &kp BSPC  &mo2_holdtog4  &alt_gui
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -193,6 +193,17 @@
             >;
 
             sensor-bindings = <&rgb_encoder>;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans          &mmv MOVE_UP    &trans           &trans         &trans                         &trans          &mkp MCLK  &mkp LCLK       &mkp RCLK     &trans    &trans  &trans
+&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PAGE_DOWN  &trans                 &trans  &trans  &trans  &mkp MB4   &msc SCRL_DOWN  &msc SCRL_UP  &mkp MB5  &trans  &trans
+&trans  &trans          &trans          &trans           &trans         &kp PAGE_UP  &trans            &trans          &trans     &trans          &trans        &trans    &trans  &trans
+                                        &trans           &trans         &trans                                         &trans     &trans          &trans
+            >;
+
+            label = "MOUSE";
         };
     };
 };
