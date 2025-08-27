@@ -113,11 +113,11 @@
 
         // Hold for layer 2, double tap and hold to toggle layer 2
 
-        mo2_holdtog4: mo2_holdtog4 {
+        mo2_holdtog2: mo2_holdtog2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <1000>;
-            bindings = <&mo 2 HOLD_TOG(2)>, <&hold_tog 4 2>;
+            bindings = <&mo 2 HOLD_TOG(2)>;
         };
 
         // Hold for layer 1, double tap and hold for layer 3
@@ -127,6 +127,15 @@
             #binding-cells = <0>;
             tapping-term-ms = <400>;
             bindings = <&mo 1>, <&mo 3>;
+        };
+
+        mo2_holdtog4: mo2_holdtog4 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MO2_HOLDTOG4";
+            #binding-cells = <0>;
+            bindings = <&mo 2>, <&hold_tog 4 2>;
+
+            tapping-term-ms = <1000>;
         };
     };
 
