@@ -6,9 +6,6 @@ manifest:
     - name: dsifry
       url-base: https://github.com/dsifry
 
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
-
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,10 +18,6 @@ manifest:
 
     - name: nice-view-mod
       remote: dsifry
-      revision: main
-
-    - name: zmk-nice-oled
-      remote: mctechnology17
       revision: main
 
   self:
