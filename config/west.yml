@@ -3,11 +3,14 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    - name: dsifry
-      url-base: https://github.com/dsifry
+    # - name: dsifry
+    #   url-base: https://github.com/dsifry
 
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+
+    - name: gpeye
+      url-base: https://github.com/GPeye
 
   projects:
     - name: zmk
@@ -19,12 +22,16 @@ manifest:
       url: https://github.com/MrBanh/zmk-new_corne
       revision: main
 
-    - name: nice-view-mod
-      remote: dsifry
-      revision: main
+    # - name: nice-view-mod
+    #   remote: dsifry
+    #   revision: main
 
     - name: zmk-nice-oled
       remote: mctechnology17
+      revision: main
+
+    - name: hammerbeam-slideshow
+      remote: gpeye
       revision: main
 
   self:
