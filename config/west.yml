@@ -6,11 +6,17 @@ manifest:
     # - name: dsifry
     #   url-base: https://github.com/dsifry
 
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
+    # - name: mctechnology17
+    #   url-base: https://github.com/mctechnology17
+    #
+    # - name: gpeye
+    #   url-base: https://github.com/GPeye
+    #
+    - name: whoop-t
+      url-base: https://github.com/whoop-t
 
-    - name: gpeye
-      url-base: https://github.com/GPeye
+    - name: qwerty22121998
+      url-base: https://github.com/qwerty22121998
 
   projects:
     - name: zmk
@@ -26,12 +32,22 @@ manifest:
     #   remote: dsifry
     #   revision: main
 
-    - name: zmk-nice-oled
-      remote: mctechnology17
+    # - name: zmk-nice-oled
+    #   remote: mctechnology17
+    #   revision: main
+    #
+    # - name: hammerbeam-slideshow
+    #   remote: gpeye
+    #   revision: main
+    #
+    # https://github.com/whoop-t/nice-futurama-sus
+
+    - name: nice-one-punch-ok
+      remote: whoop-t
       revision: main
 
-    - name: hammerbeam-slideshow
-      remote: gpeye
+    - name: nice-view-anim
+      remote: qwerty22121998
       revision: main
 
   self:
