@@ -42,9 +42,9 @@ manifest:
     #
     # https://github.com/whoop-t/nice-futurama-sus
 
-    # - name: nice-one-punch-ok
-    #   remote: whoop-t
-    #   revision: main
+    - name: nice-one-punch-ok
+      remote: whoop-t
+      revision: main
 
     - name: nice-view-anim
       remote: qwerty22121998
