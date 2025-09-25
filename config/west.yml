@@ -9,9 +9,6 @@ manifest:
     # - name: mctechnology17
     #   url-base: https://github.com/mctechnology17
     #
-    # - name: gpeye
-    #   url-base: https://github.com/GPeye
-    #
     - name: whoop-t
       url-base: https://github.com/whoop-t
 
@@ -34,10 +31,6 @@ manifest:
 
     # - name: zmk-nice-oled
     #   remote: mctechnology17
-    #   revision: main
-    #
-    # - name: hammerbeam-slideshow
-    #   remote: gpeye
     #   revision: main
     #
     # https://github.com/whoop-t/nice-futurama-sus

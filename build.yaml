@@ -16,23 +16,11 @@ include:
   # - board: eyelash_corne_right
   #   shield: nice_view_adapter nice_epaper
 
-  # https://github.com/GPeye/hammerbeam-slideshow
-  # - board: eyelash_corne_left
-  #   shield: nice_view_adapter nice_epaper
-  #   snippet: studio-rpc-usb-uart
-  #   cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
-  #   artifact-name: corne_hammerbeam_left
-  # - board: eyelash_corne_right
-  #   shield: nice_view_adapter nice_view_custom
-  #   # for nice_view_custom from hammerbeam-slideshow
-  #   cmake-args: -DCONFIG_CUSTOM_ANIMATION_SPEED=9000000
-  #   artifact-name: corne_hammerbeam_right
-
   # https://github.com/whoop-t/nice-one-punch-ok
-  # - board: eyelash_corne_left
-  #   shield: nice_view_adapter nice_one_punch_ok
-  #   snippet: studio-rpc-usb-uart
-  #   cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+  - board: eyelash_corne_left
+    shield: nice_view_adapter nice_one_punch_ok
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
 
   # https://github.com/qwerty22121998/nice-view-anim
   - board: eyelash_corne_right
