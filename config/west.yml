@@ -3,8 +3,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    # - name: dsifry
-    #   url-base: https://github.com/dsifry
+    - name: dsifry
+      url-base: https://github.com/dsifry
 
     # - name: mctechnology17
     #   url-base: https://github.com/mctechnology17
@@ -28,9 +28,9 @@ manifest:
       url: https://github.com/MrBanh/zmk-new_corne
       revision: main
 
-    # - name: nice-view-mod
-    #   remote: dsifry
-    #   revision: main
+    - name: nice-view-mod
+      remote: dsifry
+      revision: main
 
     # - name: zmk-nice-oled
     #   remote: mctechnology17
@@ -42,9 +42,9 @@ manifest:
     #
     # https://github.com/whoop-t/nice-futurama-sus
 
-    - name: nice-one-punch-ok
-      remote: whoop-t
-      revision: main
+    # - name: nice-one-punch-ok
+    #   remote: whoop-t
+    #   revision: main
 
     - name: nice-view-anim
       remote: qwerty22121998
