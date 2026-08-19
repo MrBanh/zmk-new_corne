@@ -1,0 +1,14 @@
+/*
+ *
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include "../eyelash_corne/eyelash_corne.dtsi"
+
+&default_transform {
+    col-offset = <7>;
+};

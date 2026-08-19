@@ -21,10 +21,6 @@ manifest:
       revision: main
       import: app/west.yml
 
-    - name: eyelash_corne
-      url: https://github.com/MrBanh/zmk-new_corne
-      revision: main
-
     - name: nice-view-mod
       remote: dsifry
       revision: main

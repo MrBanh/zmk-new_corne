@@ -1,0 +1,5 @@
+board:
+  socs:
+    - name: nrf52840
+      variants:
+        - name: zmk

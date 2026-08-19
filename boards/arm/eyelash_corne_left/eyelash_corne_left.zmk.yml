@@ -1,0 +1,10 @@
+file_format: "1"
+id: eyelash_corne_left
+name: Eyelash Corne Left
+type: board
+arch: arm
+outputs:
+  - usb
+  - ble
+url: https://github.com/MrBanh/zmk-new_corne
+exposes: [pro_micro]
