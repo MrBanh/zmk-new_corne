@@ -3,40 +3,17 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    - name: dsifry
-      url-base: https://github.com/dsifry
-
-    # - name: mctechnology17
-    #   url-base: https://github.com/mctechnology17
-    #
-    - name: whoop-t
-      url-base: https://github.com/whoop-t
-
     - name: qwerty22121998
       url-base: https://github.com/qwerty22121998
 
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3-branch
       import: app/west.yml
 
     - name: eyelash_corne
       url: https://github.com/MrBanh/zmk-new_corne
-      revision: main
-
-    - name: nice-view-mod
-      remote: dsifry
-      revision: main
-
-    # - name: zmk-nice-oled
-    #   remote: mctechnology17
-    #   revision: main
-    #
-    # https://github.com/whoop-t/nice-futurama-sus
-
-    - name: nice-one-punch-ok
-      remote: whoop-t
       revision: main
 
     - name: nice-view-anim
