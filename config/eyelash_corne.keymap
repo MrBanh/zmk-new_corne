@@ -48,15 +48,7 @@
             bindings = <&tog>, <&mo>;
         };
 
-        td0: td0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD0";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
-        };
-
         // Tap for Page up, Double Tap for Home
-
         PgUp_Home: PgUp_Home {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -65,7 +57,6 @@
         };
 
         // Tap for Page Down, Double Tap for End
-
         PgDn_End: PgDn_End {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -73,6 +64,7 @@
             bindings = <&kp PG_DN>, <&kp END>;
         };
 
+        // Tap for Left GUI, Double Tap for Left Alt
         gui_alt: gui_alt {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -80,42 +72,16 @@
             bindings = <&kp LGUI>, <&kp LALT>;
         };
 
+        // Tap for Right Alt, Double Tap for Right GUI
         alt_gui: alt_gui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LALT>, <&kp RGUI>;
+            bindings = <&kp RALT>, <&kp RGUI>;
         };
-
-        // Hold for GUI, tap for GUI+GRAVE, double tap for ALT
-
-        alt_gui_mac: alt_gui_mac {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt LALT LG(GRAVE)>, <&kp RGUI>;
-        };
-
-        // Hold for layer 2, double tap to toggle layer 2
-
-        mo2_tog2: mo2_tog2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <400>;
-            bindings = <&mo 2>, <&tog 2>;
-        };
-
-        // Hold for layer 2, double tap and hold to toggle layer 2
-
-        mo2_holdtog2: mo2_holdtog2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 2 HOLD_TOG(2)>;
-        };
+        
 
         // Hold for layer 1, double tap and hold for layer 3
-
         mo1_mo3: mo1_mo3 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -123,14 +89,44 @@
             bindings = <&mo 1>, <&mo 3>;
         };
 
+        // Hold for layer 2, double tap and hold for layer 4
+        mo2_mo4: mo2_mo4 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&mo 2>, <&mo 4>;
+        };
+
+        // Hold for layer 2, double tap and hold to toggle layer 4
         mo2_holdtog4: mo2_holdtog4 {
             compatible = "zmk,behavior-tap-dance";
             label = "MO2_HOLDTOG4";
             #binding-cells = <0>;
             bindings = <&mo 2>, <&hold_tog 4 2>;
-
             tapping-term-ms = <200>;
         };
+
+        hrm: hr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "hrm";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            quick-tap-ms = <150>;
+        };
+    };
+
+    macros {
+        ctrl_alt_del: ctrl_alt_del {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          bindings
+              = <&kp LC(LA(DEL))>
+              ;
+        };
+
     };
 
     rgb_encoder: rgb_encoder {
@@ -162,10 +158,19 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R     &kp T                              &PgUp_Home               &kp Y     &kp U          &kp I      &kp O    &kp P     &kp ENTER
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F     &kp G                    &mkp MB4  &kp LG(GRAVE)  &mkp MB5  &kp H     &kp J          &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V     &kp B      &kp C_MUTE              &PgDn_End                &kp N     &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                         &gui_alt  &mo1_mo3  &kp SPACE                                                   &kp BSPC  &mo2_holdtog4  &alt_gui
+//        ┌──────┬───┬───┬──────────┬─────────┬─────┐             ┌────────────┐      ┌──────┬─────────┬──────────┬───┬───┬──────┐
+//        │ tab  │ Q │ W │    E     │    R    │  T  │             │ &PgUp_Home │      │  Y   │    U    │    I     │ O │ P │ ent  │
+//        ├──────┼───┼───┼──────────┼─────────┼─────┤      ┌──────┼────────────┼──────┼──────┼─────────┼──────────┼───┼───┼──────┤
+//        │ lsft │ A │ S │    D     │    F    │  G  │      │ mbck │  lgui(`)   │ mfwd │  H   │    J    │    K     │ L │ ; │  '   │
+//        ├──────┼───┼───┼──────────┼─────────┼─────┼──────┼──────┼────────────┼──────┼──────┼─────────┼──────────┼───┼───┼──────┤
+//        │ lctl │ Z │ X │    C     │    V    │  B  │ mute │      │ &PgDn_End  │      │  N   │    M    │    ,     │ . │ / │ rsft │
+//        └──────┴───┴───┼──────────┼─────────┼─────┼──────┘      └────────────┘      ├──────┼─────────┼──────────┼───┴───┴──────┘
+//                       │ &gui_alt │ mo1_mo3 │ spc │                                 │ bspc │ mo2_mo4 │ &alt_gui │
+//                       └──────────┴─────────┴─────┘                                 └──────┴─────────┴──────────┘
+      &kp TAB     &kp Q   &kp W   &kp E      &kp R      &kp T                               &PgUp_Home                 &kp Y      &kp U      &kp I       &kp O     &kp P      &kp ENTER
+      &kp LSHFT   &kp A   &kp S   &kp D      &kp F      &kp G                    &mkp MB4   &kp LG(GRAVE)   &mkp MB5   &kp H      &kp J      &kp K       &kp L     &kp SEMI   &kp SQT
+      &kp LCTRL   &kp Z   &kp X   &kp C      &kp V      &kp B       &kp C_MUTE              &PgDn_End                  &kp N      &kp M      &kp COMMA   &kp DOT   &kp FSLH   &kp RSHFT
+                                  &gui_alt   &mo1_mo3   &kp SPACE                                                      &kp BSPC   &mo2_mo4   &alt_gui
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -174,10 +179,19 @@
         lower_layer {
             display-name = "LOWER";
             bindings = <
-&kp ESC   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                               &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&kp CAPS  &trans    &trans  &trans    &trans    &trans                  &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp UNDER  &kp MINUS  &kp PLUS   &kp EQUAL  &kp LBRC  &kp RBRC
-&trans    &trans    &trans  &trans    &trans    &trans     &mkp MCLK                    &mmv MOVE_DOWN                   &trans     &trans     &trans     &trans     &trans    &trans
-                            &trans    &trans    &trans                                                                   &trans     &trans     &trans
+//        ┌──────┬─────┬─────┬─────┬─────┬─────┐                       ┌────────────────┐                ┌─────┬─────┬─────┬─────┬─────┬─────┐
+//        │ esc  │  !  │  @  │  #  │  $  │  %  │                       │  &mmv MOVE_up  │                │  ^  │  &  │  *  │  (  │  )  │  |  │
+//        ├──────┼─────┼─────┼─────┼─────┼─────┤      ┌────────────────┼────────────────┼────────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//        │ caps │     │     │     │     │     │      │ &mmv MOVE_left │      lclk      │ &mmv MOVE_rght │  _  │  -  │  +  │  =  │  {  │  }  │
+//        ├──────┼─────┼─────┼─────┼─────┼─────┼──────┼────────────────┼────────────────┼────────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//        │      │     │     │     │     │     │ mclk │                │ &mmv MOVE_down │                │     │     │     │     │     │     │
+//        └──────┴─────┴─────┼─────┼─────┼─────┼──────┘                └────────────────┘                ├─────┼─────┼─────┼─────┴─────┴─────┘
+//                           │     │     │     │                                                         │     │     │     │
+//                           └─────┴─────┴─────┘                                                         └─────┴─────┴─────┘
+      &kp ESC    &kp EXCL   &kp AT   &kp HASH   &kp DLLR   &kp PRCNT                                &mmv MOVE_UP                       &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR   &kp PIPE
+      &kp CAPS   &trans     &trans   &trans     &trans     &trans                  &mmv MOVE_LEFT   &mkp LCLK        &mmv MOVE_RIGHT   &kp UNDER   &kp MINUS   &kp PLUS    &kp EQUAL   &kp LBRC   &kp RBRC
+      &trans     &trans     &trans   &trans     &trans     &trans      &mkp MCLK                    &mmv MOVE_DOWN                     &trans      &trans      &trans      &trans      &trans     &trans
+                                     &trans     &trans     &trans                                                                      &trans      &trans      &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -186,10 +200,19 @@
         raise_layer {
             display-name = "RAISE";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                               &mmv MOVE_UP                     &kp N6    &kp N7    &kp N8  &kp N9     &kp N0    &kp BSLH
-&trans     &trans  &trans  &trans  &trans  &trans               &mmv MOVE_LEFT  &mkp RCLK       &mmv MOVE_RIGHT  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp LBKT  &kp RBKT
-&trans     &trans  &trans  &trans  &trans  &trans  &mkp MCLK                    &mmv MOVE_DOWN                   &trans    &trans    &trans  &trans     &trans    &trans
-                           &trans  &trans  &trans                                                                &trans    &trans    &trans
+//        ┌─────┬─────┬─────┬─────┬──────┬──────┐                       ┌────────────────┐                ┌──────┬──────┬─────┬──────┬─────┬─────┐
+//        │  `  │  1  │  2  │  3  │  4   │  5   │                       │  &mmv MOVE_up  │                │  6   │  7   │  8  │  9   │  0  │  \  │
+//        ├─────┼─────┼─────┼─────┼──────┼──────┤      ┌────────────────┼────────────────┼────────────────┼──────┼──────┼─────┼──────┼─────┼─────┤
+//        │     │     │     │     │ pgdn │      │      │ &mmv MOVE_left │      rclk      │ &mmv MOVE_rght │ left │ down │ up  │ rght │  [  │  ]  │
+//        ├─────┼─────┼─────┼─────┼──────┼──────┼──────┼────────────────┼────────────────┼────────────────┼──────┼──────┼─────┼──────┼─────┼─────┤
+//        │     │     │     │     │      │ pgup │ mclk │                │ &mmv MOVE_down │                │      │      │     │      │     │     │
+//        └─────┴─────┴─────┼─────┼──────┼──────┼──────┘                └────────────────┘                ├──────┼──────┼─────┼──────┴─────┴─────┘
+//                          │     │      │      │                                                         │      │      │     │
+//                          └─────┴──────┴──────┘                                                         └──────┴──────┴─────┘
+      &kp GRAVE   &kp N1   &kp N2   &kp N3   &kp N4      &kp N5                                   &mmv MOVE_UP                       &kp N6     &kp N7     &kp N8   &kp N9      &kp N0     &kp BSLH
+      &trans      &trans   &trans   &trans   &kp PG_DN   &trans                  &mmv MOVE_LEFT   &mkp RCLK        &mmv MOVE_RIGHT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &kp LBKT   &kp RBKT
+      &trans      &trans   &trans   &trans   &trans      &kp PG_UP   &mkp MCLK                    &mmv MOVE_DOWN                     &trans     &trans     &trans   &trans      &trans     &trans
+                                    &trans   &trans      &trans                                                                      &trans     &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -198,10 +221,19 @@
         layer_3 {
             display-name = "ADJUST";
             bindings = <
-&kp F12       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                           &mmv MOVE_UP                     &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &kp F11
-&out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                     &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
-&trans        &trans        &trans        &bt BT_CLR    &trans        &trans        &rgb_ug RGB_TOG                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFF  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-                                          &trans        &trans        &trans                                                                            &trans           &trans           &trans
+//        ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐                          ┌────────────────┐                ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────┐
+//        │   f12    │    f1    │    f2    │    f3    │    f4    │    f5    │                          │  &mmv MOVE_up  │                │   f6    │   f7    │   f8    │   f9    │   f10   │ f11 │
+//        ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤         ┌────────────────┼────────────────┼────────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────┤
+//        │ out_ tog │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │         │ &mmv MOVE_left │      mclk      │ &mmv MOVE_rght │ ug_ tog │ ug_ hu+ │ ug_ sa+ │ ug_ br+ │ ug_ sp+ │     │
+//        ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼─────────┼────────────────┼────────────────┼────────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────┤
+//        │          │          │          │  bt_clr  │          │          │ ug_ tog │                │ &mmv MOVE_down │                │ ug_ eff │ ug_ hu- │ ug_ sa- │ ug_ br- │ ug_ sp- │     │
+//        └──────────┴──────────┴──────────┼──────────┼──────────┼──────────┼─────────┘                └────────────────┘                ├─────────┼─────────┼─────────┼─────────┴─────────┴─────┘
+//                                         │          │          │          │                                                            │         │         │         │
+//                                         └──────────┴──────────┴──────────┘                                                            └─────────┴─────────┴─────────┘
+      &kp F12        &kp F1         &kp F2         &kp F3         &kp F4         &kp F5                                            &mmv MOVE_UP                       &kp F6            &kp F7            &kp F8            &kp F9            &kp F10           &kp F11
+      &out OUT_TOG   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                     &mmv MOVE_LEFT   &mkp MCLK        &mmv MOVE_RIGHT   &rgb_ug RGB_TOG   &rgb_ug RGB_HUI   &rgb_ug RGB_SAI   &rgb_ug RGB_BRI   &rgb_ug RGB_SPI   &trans
+      &trans         &trans         &trans         &bt BT_CLR     &trans         &trans         &rgb_ug RGB_TOG                    &mmv MOVE_DOWN                     &rgb_ug RGB_EFF   &rgb_ug RGB_HUD   &rgb_ug RGB_SAD   &rgb_ug RGB_BRD   &rgb_ug RGB_SPD   &trans
+                                                   &trans         &trans         &trans                                                                               &trans            &trans            &trans
             >;
 
             sensor-bindings = <&rgb_encoder>;
@@ -209,10 +241,19 @@
 
         layer_4 {
             bindings = <
-&trans  &kp DEL  &trans          &mmv MOVE_UP    &trans           &kp PRINTSCREEN                    &trans          &mkp MCLK  &mkp LCLK       &mkp RCLK     &trans    &trans      &trans
-&trans  &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                     &trans  &trans  &trans  &mkp MB4   &msc SCRL_DOWN  &msc SCRL_UP  &mkp MB5  &PgUp_Home  &PgDn_End
-&trans  &trans   &trans          &trans          &trans           &trans           &trans            &trans          &trans     &trans          &trans        &trans    &trans      &trans
-                                 &trans          &trans           &trans                                             &trans     &trans          &trans
+//        ┌───────────────┬─────┬────────────────┬────────────────┬────────────────┬──────┐           ┌─────┐     ┌──────┬────────────────┬──────────────┬──────┬────────────┬───────────┐
+//        │ &ctrl_alt_del │     │                │  &mmv MOVE_up  │                │ pscr │           │     │     │ mclk │      lclk      │     rclk     │      │            │           │
+//        ├───────────────┼─────┼────────────────┼────────────────┼────────────────┼──────┤     ┌─────┼─────┼─────┼──────┼────────────────┼──────────────┼──────┼────────────┼───────────┤
+//        │               │     │ &mmv MOVE_left │ &mmv MOVE_down │ &mmv MOVE_rght │      │     │     │     │     │ mbck │ &msc SCRL_down │ &msc SCRL_up │ mfwd │ &PgUp_Home │ &PgDn_End │
+//        ├───────────────┼─────┼────────────────┼────────────────┼────────────────┼──────┼─────┼─────┼─────┼─────┼──────┼────────────────┼──────────────┼──────┼────────────┼───────────┤
+//        │               │     │      del       │                │                │      │     │     │     │     │      │                │              │      │            │           │
+//        └───────────────┴─────┴────────────────┼────────────────┼────────────────┼──────┼─────┘     └─────┘     ├──────┼────────────────┼──────────────┼──────┴────────────┴───────────┘
+//                                               │                │                │      │                       │      │                │              │
+//                                               └────────────────┴────────────────┴──────┘                       └──────┴────────────────┴──────────────┘
+      &ctrl_alt_del   &trans   &trans           &mmv MOVE_UP     &trans            &kp PRINTSCREEN                     &trans            &mkp MCLK   &mkp LCLK        &mkp RCLK      &trans     &trans       &trans
+      &trans          &trans   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &trans                     &trans   &trans   &trans   &mkp MB4    &msc SCRL_DOWN   &msc SCRL_UP   &mkp MB5   &PgUp_Home   &PgDn_End
+      &trans          &trans   &kp DEL          &trans           &trans            &trans            &trans            &trans            &trans      &trans           &trans         &trans     &trans       &trans
+                                                &trans           &trans            &trans                                                &trans      &trans           &trans
             >;
 
             label = "MOUSE";
